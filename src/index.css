@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+/* Custom fonts & global custom variables */
+@layer base {
+  :root {
+    --font-sans: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  body {
+    font-family: var(--font-sans);
+    background-color: #090d16;
+    color: #f8fafc;
+    overflow-x: hidden;
+  }
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(30, 41, 59, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel-glow {
+  background: rgba(30, 41, 59, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(239, 68, 68, 0.15);
+  box-shadow: 0 0 25px rgba(239, 68, 68, 0.05);
+}
+
+/* Neon glow animations */
+@keyframes neonPulseRed {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.2), inset 0 0 10px rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.4), inset 0 0 15px rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.6);
+  }
+}
+
+@keyframes neonPulseCyan {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(34, 211, 238, 0.2), inset 0 0 10px rgba(34, 211, 238, 0.1);
+    border-color: rgba(34, 211, 238, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(34, 211, 238, 0.4), inset 0 0 15px rgba(34, 211, 238, 0.2);
+    border-color: rgba(34, 211, 238, 0.6);
+  }
+}
+
+.glow-pulse-red {
+  animation: neonPulseRed 3s infinite ease-in-out;
+}
+
+.glow-pulse-cyan {
+  animation: neonPulseCyan 3s infinite ease-in-out;
+}
+
+/* Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090d16;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float {
+  animation: float 4s infinite ease-in-out;
+}
+
+/* Radar/Gauge custom transition */
+.transition-stroke {
+  transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
